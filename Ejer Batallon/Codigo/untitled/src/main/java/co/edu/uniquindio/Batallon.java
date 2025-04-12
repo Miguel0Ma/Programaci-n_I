@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Batallon {
     private String nombre;
+    private String idBatallon;
     private ArrayList<Vehiculo> listVehiculos;
     private ArrayList<Blindado> listVehiculosBlindados;
     private ArrayList<TransporteTropa> listTransporteTropas;
@@ -14,10 +15,15 @@ public class Batallon {
 
     public Batallon(String nombre, ArrayList<TransporteTropa> listTransporteTropas) {
         this.nombre = nombre;
+        this.idBatallon=idBatallon;
         this.listTransporteTropas = listTransporteTropas;
         this.listVehiculosBlindados = new ArrayList<>();
         this.listVehiculosApoyo = new ArrayList<>();
         this.listMisiones = new ArrayList<>();
+    }
+
+    public Batallon() {
+
     }
 
     public void setNombre(String nombre) {
@@ -28,6 +34,61 @@ public class Batallon {
         return nombre;
     }
 
+    public String getId() {
+        return idBatallon;
+    }
+
+    public void setId(String id) {
+        this.idBatallon = idBatallon;
+    }
+
+    public ArrayList<Soldado> getListSoldados() {
+        return listSoldados;
+    }
+
+    public void setListSoldados(ArrayList<Soldado> listSoldados) {
+        this.listSoldados = listSoldados;
+    }
+
+    public ArrayList<String> getListMisiones() {
+        return listMisiones;
+    }
+
+    public void setListMisiones(ArrayList<String> listMisiones) {
+        this.listMisiones = listMisiones;
+    }
+
+    public ArrayList<Apoyo> getListVehiculosApoyo() {
+        return listVehiculosApoyo;
+    }
+
+    public void setListVehiculosApoyo(ArrayList<Apoyo> listVehiculosApoyo) {
+        this.listVehiculosApoyo = listVehiculosApoyo;
+    }
+
+    public ArrayList<Vehiculo> getListVehiculos() {
+        return listVehiculos;
+    }
+
+    public void setListVehiculos(ArrayList<Vehiculo> listVehiculos) {
+        this.listVehiculos = listVehiculos;
+    }
+
+    public ArrayList<Blindado> getListVehiculosBlindados() {
+        return listVehiculosBlindados;
+    }
+
+    public void setListVehiculosBlindados(ArrayList<Blindado> listVehiculosBlindados) {
+        this.listVehiculosBlindados = listVehiculosBlindados;
+    }
+
+    public ArrayList<TransporteTropa> getListTransporteTropas() {
+        return listTransporteTropas;
+    }
+
+    public void setListTransporteTropas(ArrayList<TransporteTropa> listTransporteTropas) {
+        this.listTransporteTropas = listTransporteTropas;
+    }
 
     //METODO PARA OBTENER LISTADO DE VEHÍCULOS CON MAS DE 50 MISIONES COPLETADAS PARA EVALUACIÓN Y POSIBLE REEMPLAZO
     public ArrayList<Vehiculo> cantMisionesVehiculos() {
@@ -139,6 +200,14 @@ public class Batallon {
                 listSoldados.remove(soldado);
             }
         }
+    }
+    //METODO
+    public boolean asignarSoldadoMision(Soldado soldado) {
+        if (soldado.getEstado()!=false) {
+            listSoldados.add(soldado);
+            soldado.setEstado(false);
+        }
+        return false;
     }
 
     //METODO PARA BUSCAR SOLDADOS POR ESPECIALIDAD

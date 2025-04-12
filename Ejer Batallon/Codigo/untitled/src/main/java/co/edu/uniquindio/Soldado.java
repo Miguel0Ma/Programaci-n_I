@@ -14,7 +14,7 @@ public class Soldado {
         this.rango = rango;
         this.especialidad = especialidad;
         this.edad = edad;
-        this.estado = estado;
+        this.estado = true;
     }
 
 
@@ -72,6 +72,10 @@ public class Soldado {
     public Especialidad getEspecialidad() {
 
         return especialidad;
+    }
+
+    public boolean isEstado() {
+        return estado;
     }
 
     public void setEspecializacionSoldado(Especialidad especialidad) {

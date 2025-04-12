@@ -17,6 +17,11 @@ public class Mision {
         this.ubicacion = ubicacion;
         this.vehiculosAsignados = vehiculosAsignados;
     }
+
+    public Mision() {
+
+    }
+
     public String getId(){
         return id;
     }
