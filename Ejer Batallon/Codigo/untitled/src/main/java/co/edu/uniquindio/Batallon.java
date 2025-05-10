@@ -114,28 +114,51 @@ public class Batallon {
 
 
     //METODO PARA REGISTRAR UNA MISION
-    public boolean registrarMision(String idMision, LocalDate fechaMision, String ubicacionMision, Vehiculo idVehiculo, ArrayList listPersonal) {
-        boolean i = false;
+//    public boolean registrarMision(String idMision, LocalDate fechaMision, String ubicacionMision, Vehiculo idVehiculo, ArrayList listPersonal) {
+//        boolean i = false;
+//
+//        //Connvertir de Int a String
+//        String cantMisionesActuales = String.valueOf(listMisiones.size() + 1);
+//        Mision newMision = new Mision(idMision, fechaMision, ubicacionMision, idVehiculo);
+//        for (Vehiculo vehiculo : listVehiculos) {
+//            if (vehiculo.getId().equals(idVehiculo)) {
+//                newMision.setVehiculosAsignados(vehiculo);
+//
+//                ArrayList<Mision> listTempo = vehiculo.getListMisiones();
+//                listTempo.add(newMision);
+//
+//                vehiculo.setListMisiones(listTempo);
+//
+//                listMisiones.add(newMision);
+//                i = true;
+//                break;
+//            }
+//        }
+//
+//        return i;
+//    }
+    public boolean registrarMision(LocalDate fecha, String ubicacion,
+                                   ArrayList listPersonal, String idVehiculomision){
+        boolean flag = false;
 
-        //Connvertir de Int a String
-        String cantMisionesActuales = String.valueOf(listMisiones.size() + 1);
-        Mision newMision = new Mision(idMision, fechaMision, ubicacionMision, idVehiculo);
-        for (Vehiculo vehiculo : listVehiculos) {
-            if (vehiculo.getId().equals(idVehiculo)) {
+        //Convertir de int a string
+        String cantMisionesActuales = String.valueOf(listMisiones.size()+1);
+
+        Mision newMision = new Mision(fecha,ubicacion,)
+
+        for(Vehiculo vehiculo : listVehiculos){
+            if (vehiculo.getId().equals(idVehiculomision)){
                 newMision.setVehiculosAsignados(vehiculo);
 
-                ArrayList<Mision> listTempo = vehiculo.getListMisiones();
-                listTempo.add(newMision);
-
-                vehiculo.setListMisiones(listTempo);
+                vehiculo.agregarMision(newMision);
 
                 listMisiones.add(newMision);
-                i = true;
+                flag = true;
                 break;
             }
         }
 
-        return i;
+        return flag;
     }
 
     //METODO PARA CALCULAR KILOMETRAJE PROMEDIO POR TIPO DE VEHICULO (TRANSPORTE DE TROPAS)
@@ -201,7 +224,7 @@ public class Batallon {
             }
         }
     }
-    //METODO
+    //METODO PARA ASIGNAR UN SOLDADO A UNA MISION
     public boolean asignarSoldadoMision(Soldado soldado) {
         if (soldado.getEstado()!=false) {
             listSoldados.add(soldado);

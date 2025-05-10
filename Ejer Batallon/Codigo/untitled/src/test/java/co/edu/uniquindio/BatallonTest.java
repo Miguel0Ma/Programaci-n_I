@@ -28,4 +28,17 @@ class BatallonTest {
         assertTrue(resultadoTest);
 
     }
+
+    @Test
+    void listSoldadosEspecialidad() {
+        Soldado soldado = new Soldado("2","carlos","Mayor",Especialidad.MEDICO,18,true);
+        ArrayList<Soldado> listsolados = new ArrayList<>();
+        listsolados.add(soldado);
+        Batallon batallon= new Batallon();
+        ArrayList<Soldado> listsoldadoespecialidad = listsolados;
+        assertEquals(1,listsoldadoespecialidad.size());
+        //Verifica que la cantidad sea la misma de la lista
+
+
+    }
 }

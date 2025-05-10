@@ -27,6 +27,9 @@ public abstract class Vehiculo {
         this.listApoyo = new ArrayList<>();
 
     }
+    public boolean agregarMision(Mision newMision){
+        return listMisiones.add(newMision);
+    }
 
     public String getId() {
         return id;
